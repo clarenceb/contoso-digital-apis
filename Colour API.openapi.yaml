@@ -1,0 +1,574 @@
+openapi: 3.0.1
+info:
+  title: Colour API
+  description: Colours API
+  version: '1.0'
+servers:
+  - url: https://colors-apim.azure-api.net/color
+paths:
+  /colours:
+    get:
+      tags:
+        - Colours
+      summary: Get colours
+      description: Returns all colours.
+      operationId: GetColours
+      responses:
+        '200':
+          description: Success - returns list of colours
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ColoursGet200TextPlainResponse'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ColoursGet200ApplicationJsonResponse'
+              example:
+                - id: 0
+                  name: string
+                  data: string
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ColoursGet200TextJsonResponse'
+              example:
+                - id: 0
+                  name: string
+                  data: string
+    post:
+      tags:
+        - Colours
+      summary: Update / create colours
+      description: Updates colours - creates colour if it doesn't exist
+      operationId: UpdateColours
+      requestBody:
+        description: Colours to update
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ColoursPostRequest'
+            example:
+              - id: 0
+                name: string
+                data: string
+          text/json:
+            schema:
+              $ref: '#/components/schemas/ColoursPostRequest-1'
+            example:
+              - id: 0
+                name: string
+                data: string
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/ColoursPostRequest-2'
+            example:
+              - id: 0
+                name: string
+                data: string
+      responses:
+        '201':
+          description: Success - colours updated/created
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ColoursItem'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ColoursItem'
+              example:
+                id: 0
+                name: string
+                data: string
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ColoursItem'
+              example:
+                id: 0
+                name: string
+                data: string
+        '422':
+          description: Unprocessable Entity
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+              example:
+                type: string
+                title: string
+                status: 0
+                detail: string
+                instance: string
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+              example:
+                type: string
+                title: string
+                status: 0
+                detail: string
+                instance: string
+    delete:
+      tags:
+        - Colours
+      summary: Delete colours
+      description: Deletes all colours.
+      operationId: DeletesColours
+      responses:
+        '204':
+          description: Success - all colours deleted
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ColoursItem'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ColoursItem'
+              example:
+                id: 0
+                name: string
+                data: string
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ColoursItem'
+              example:
+                id: 0
+                name: string
+                data: string
+  '/colours/{colourId}':
+    get:
+      tags:
+        - Colours
+      summary: Get colour by id
+      description: 'Returns colour specified by {colourId} (must be between 1 and 1000).'
+      operationId: GetColourById
+      parameters:
+        - name: colourId
+          in: path
+          description: Format - int32. Id of Colour to return
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Success - returns colour
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ColoursItem'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ColoursItem'
+              example:
+                id: 0
+                name: string
+                data: string
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ColoursItem'
+              example:
+                id: 0
+                name: string
+                data: string
+        '404':
+          description: Not Found
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+              example:
+                type: string
+                title: string
+                status: 0
+                detail: string
+                instance: string
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+              example:
+                type: string
+                title: string
+                status: 0
+                detail: string
+                instance: string
+        '422':
+          description: Unprocessable Entity
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+              example:
+                type: string
+                title: string
+                status: 0
+                detail: string
+                instance: string
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+              example:
+                type: string
+                title: string
+                status: 0
+                detail: string
+                instance: string
+    post:
+      tags:
+        - Colours
+      summary: Update / create colour by id
+      description: 'Updates colour specified by {colourId} (must be between 1 and 1000);  use {colourId} = 0 to insert new color'
+      operationId: UpdateColourById
+      parameters:
+        - name: colourId
+          in: path
+          description: Format - int32. Id of Colour to update
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        description: Colours to update
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ColoursItem'
+            example:
+              id: 0
+              name: string
+              data: string
+          text/json:
+            schema:
+              $ref: '#/components/schemas/ColoursItem'
+            example:
+              id: 0
+              name: string
+              data: string
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/ColoursItem'
+            example:
+              id: 0
+              name: string
+              data: string
+      responses:
+        '201':
+          description: Success - colour created/updated
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ColoursItem'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ColoursItem'
+              example:
+                id: 0
+                name: string
+                data: string
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ColoursItem'
+              example:
+                id: 0
+                name: string
+                data: string
+        '422':
+          description: Unprocessable Entity
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+              example:
+                type: string
+                title: string
+                status: 0
+                detail: string
+                instance: string
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+              example:
+                type: string
+                title: string
+                status: 0
+                detail: string
+                instance: string
+    delete:
+      tags:
+        - Colours
+      summary: Delete colour by id
+      description: 'Deletes colour specified by {colourId} (must be between 1 and 1000).'
+      operationId: DeleteColourById
+      parameters:
+        - name: colourId
+          in: path
+          description: Format - int32. Id of Colour to delete
+          required: true
+          schema:
+            type: integer
+      responses:
+        '204':
+          description: Success - colour deleted
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ColoursItem'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ColoursItem'
+              example:
+                id: 0
+                name: string
+                data: string
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ColoursItem'
+              example:
+                id: 0
+                name: string
+                data: string
+        '422':
+          description: Unprocessable Entity
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+              example:
+                type: string
+                title: string
+                status: 0
+                detail: string
+                instance: string
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+              example:
+                type: string
+                title: string
+                status: 0
+                detail: string
+                instance: string
+  /colours/findbyname:
+    get:
+      tags:
+        - Colours
+      summary: Get colour by name
+      description: 'Returns colour specified by {colourName} '
+      operationId: GetColourByName
+      parameters:
+        - name: colourName
+          in: query
+          description: Name of Colour to return
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success - returns colour
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ColoursItem'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ColoursItem'
+              example:
+                id: 0
+                name: string
+                data: string
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ColoursItem'
+              example:
+                id: 0
+                name: string
+                data: string
+        '404':
+          description: Not Found
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+              example:
+                type: string
+                title: string
+                status: 0
+                detail: string
+                instance: string
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+              example:
+                type: string
+                title: string
+                status: 0
+                detail: string
+                instance: string
+  /colours/random:
+    get:
+      tags:
+        - Colours
+      summary: Get random colour
+      description: Returns random colour.
+      operationId: GetRandomColour
+      responses:
+        '200':
+          description: Success - returns random colour
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ColoursItem'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ColoursItem'
+              example:
+                id: 0
+                name: string
+                data: string
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ColoursItem'
+              example:
+                id: 0
+                name: string
+                data: string
+        '404':
+          description: Not Found
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+              example:
+                type: string
+                title: string
+                status: 0
+                detail: string
+                instance: string
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+              example:
+                type: string
+                title: string
+                status: 0
+                detail: string
+                instance: string
+  /colours/reset:
+    post:
+      tags:
+        - Colours
+      summary: Reset colours
+      description: Reset colours to default.
+      operationId: ResetColours
+      responses:
+        '201':
+          description: Success - colours reset
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/ColoursItem'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ColoursItem'
+              example:
+                id: 0
+                name: string
+                data: string
+            text/json:
+              schema:
+                $ref: '#/components/schemas/ColoursItem'
+              example:
+                id: 0
+                name: string
+                data: string
+components:
+  schemas:
+    ColoursItem:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        name:
+          type: string
+          nullable: true
+        data:
+          type: string
+          nullable: true
+      additionalProperties: false
+    ProblemDetails:
+      type: object
+      properties:
+        type:
+          type: string
+          nullable: true
+        title:
+          type: string
+          nullable: true
+        status:
+          type: integer
+          format: int32
+          nullable: true
+        detail:
+          type: string
+          nullable: true
+        instance:
+          type: string
+          nullable: true
+      additionalProperties: { }
+    ColoursGet200TextPlainResponse:
+      type: array
+      items:
+        $ref: '#/components/schemas/ColoursItem'
+    ColoursGet200ApplicationJsonResponse:
+      type: array
+      items:
+        $ref: '#/components/schemas/ColoursItem'
+    ColoursGet200TextJsonResponse:
+      type: array
+      items:
+        $ref: '#/components/schemas/ColoursItem'
+    ColoursPostRequest:
+      type: array
+      items:
+        $ref: '#/components/schemas/ColoursItem'
+      nullable: true
+    ColoursPostRequest-1:
+      type: array
+      items:
+        $ref: '#/components/schemas/ColoursItem'
+      nullable: true
+    ColoursPostRequest-2:
+      type: array
+      items:
+        $ref: '#/components/schemas/ColoursItem'
+      nullable: true
+  securitySchemes:
+    apiKeyHeader:
+      type: apiKey
+      name: Ocp-Apim-Subscription-Key
+      in: header
+    apiKeyQuery:
+      type: apiKey
+      name: subscription-key
+      in: query
+security:
+  - apiKeyHeader: [ ]
+  - apiKeyQuery: [ ]
