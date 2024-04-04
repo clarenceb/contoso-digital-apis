@@ -1,0 +1,190 @@
+{
+	"info": {
+		"_postman_id": "da56e161-e2d8-459b-a8d2-d07308a5b310",
+		"name": "Colors",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24571072"
+	},
+	"item": [
+		{
+			"name": "Get random colour",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Ocp-Apim-Subscription-Key",
+						"value": "{{subscription_key}}",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "https://{{base_url}}/color/colors/random",
+					"protocol": "https",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"color",
+						"colors",
+						"random"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get colors",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Ocp-Apim-Subscription-Key",
+						"value": "{{subscription_key}}",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "https://{{base_url}}/colors/colors",
+					"protocol": "https",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"colors",
+						"colors"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get colour by name",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Ocp-Apim-Subscription-Key",
+						"value": "{{subscription_key}}",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "https://{{base_url}}/colors/colors/findbyname?colorName=blue",
+					"protocol": "https",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"colors",
+						"colors",
+						"findbyname"
+					],
+					"query": [
+						{
+							"key": "colorName",
+							"value": "blue"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get colour by name (rev 2)",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Ocp-Apim-Subscription-Key",
+						"value": "{{subscription_key}}",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "https://{{base_url}}/colors/colors/findbyname?colorName=blue",
+					"protocol": "https",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"colors",
+						"colors",
+						"findbyname"
+					],
+					"query": [
+						{
+							"key": "colorName",
+							"value": "blue"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get colour by name (ver 2)",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Ocp-Apim-Subscription-Key",
+						"value": "{{subscription_key}}",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "https://{{base_url}}/colors/v2/colors/findbyname?colorName=blue",
+					"protocol": "https",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"colors",
+						"v2",
+						"colors",
+						"findbyname"
+					],
+					"query": [
+						{
+							"key": "colorName",
+							"value": "blue"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "yourapim.azure-api.net",
+			"type": "string"
+		},
+		{
+			"key": "subscription_key",
+			"value": "xxxxxxxxxxxxxxx",
+			"type": "string"
+		}
+	]
+}

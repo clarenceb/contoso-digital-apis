@@ -1,0 +1,220 @@
+{
+	"info": {
+		"_postman_id": "dd33cc10-9c2b-421f-9709-4932c1c63e57",
+		"name": "Calculator",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24571072"
+	},
+	"item": [
+		{
+			"name": "Calc two integers",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Ocp-Apim-Subscription-Key",
+						"value": "{{subscription_key}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://{{base_url}}/calc/add?a=41&b=49",
+					"protocol": "https",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"calc",
+						"add"
+					],
+					"query": [
+						{
+							"key": "a",
+							"value": "41"
+						},
+						{
+							"key": "b",
+							"value": "49"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Divide two integers",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Ocp-Apim-Subscription-Key",
+						"value": "{{subscription_key}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://{{base_url}}/calc/div?a=51&b=49",
+					"protocol": "https",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"calc",
+						"div"
+					],
+					"query": [
+						{
+							"key": "a",
+							"value": "51"
+						},
+						{
+							"key": "b",
+							"value": "49"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Multiply two integers",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Ocp-Apim-Subscription-Key",
+						"value": "{{subscription_key}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://{{base_url}}/calc/div?a=51&b=49",
+					"protocol": "https",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"calc",
+						"div"
+					],
+					"query": [
+						{
+							"key": "a",
+							"value": "51"
+						},
+						{
+							"key": "b",
+							"value": "49"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Subtract two integers",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Ocp-Apim-Subscription-Key",
+						"value": "{{subscription_key}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://{{base_url}}/calc/div?a=51&b=49",
+					"protocol": "https",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"calc",
+						"div"
+					],
+					"query": [
+						{
+							"key": "a",
+							"value": "51"
+						},
+						{
+							"key": "b",
+							"value": "49"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "apikey"
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "yourapim.azure-api.net",
+			"type": "string"
+		},
+		{
+			"key": "subscription_key",
+			"value": "yourkey",
+			"type": "string"
+		},
+		{
+			"key": "access_token",
+			"value": "xxxxxxxxxxxxxx",
+			"type": "string"
+		}
+	]
+}
