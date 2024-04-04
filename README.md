@@ -15,6 +15,6 @@
 
 |Name|Collection file|
 |-----------|-----------|
-|Calculator|[calculator.postman_collection.json](https://github.com/clarenceb/contoso-digital-apis/blob/main/calculator.postman_collection.json)|
-|Colors|[Colors.postman_collection.json](https://github.com/clarenceb/contoso-digital-apis/blob/main/calculator.postman_collection.json)|
+|Calculator|[calculator.postman_collection.json](https://github.com/clarenceb/contoso-digital-apis/blob/main/Calculator.postman_collection.json)|
+|Colors|[Colors.postman_collection.json](https://github.com/clarenceb/contoso-digital-apis/blob/main/Colors.postman_collection.json)|
 |SWAPI|[SWAPI.postman_collection.json](https://github.com/clarenceb/contoso-digital-apis/blob/main/SWAPI.postman_collection.json)|
